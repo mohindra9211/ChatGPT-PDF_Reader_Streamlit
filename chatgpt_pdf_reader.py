@@ -10,7 +10,7 @@ openai.api_key = api_key
 
 # Define a function to extract text from a PDF file
 def extract_text_from_pdf(file):
-    pdf_reader = PyPDF2.PdfFileReader(file)
+    pdf_reader = PyPDF2.PdfReader(file)
     text = ""
     for page_num in range(pdf_reader.getNumPages()):
         page = pdf_reader.getPage(page_num)
