@@ -44,19 +44,16 @@ def handle_file_upload():
         
         answered = True  # Set to True initially to prevent first question box from showing up
 
-        while True:
-            if answered:
-                question = st.text_input("Enter a question (type 'exit' to end):", key=uuid.uuid1())
-            else:
-                question = st.text_input("")
-
+        """while True:
+            question = st.text_input("Enter a question (type 'exit' to end):", key= uuid.uuid1())
             if question.lower() == "exit":
                 break
-            #question = st.text_input("Enter a question (type 'exit' to end):", key= uuid.uuid1())
-            #if question.lower() == "exit":
-                #break
-            #elif question == "":
-                #continue
+            elif question == "":
+                continue
+            answer = generate_answer(question, text)
+            st.write(answer)"""
+        question = st.text_input("Enter a question:")
+        if st.button("Submit"):
             answer = generate_answer(question, text)
             st.write(answer)
 
