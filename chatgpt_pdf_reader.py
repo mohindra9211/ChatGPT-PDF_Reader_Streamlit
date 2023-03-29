@@ -41,13 +41,22 @@ def handle_file_upload():
     file = st.file_uploader("Upload a PDF file", type=["pdf"])
     if file is not None:
         text = extract_text_from_pdf(file)
+        
+        answered = True  # Set to True initially to prevent first question box from showing up
 
         while True:
-            question = st.text_input("Enter a question (type 'exit' to end):", key= uuid.uuid1())
+            if answered:
+                question = st.text_input("Enter a question (type 'exit' to end):", key=uuid.uuid1())
+            else:
+                question = st.text_input("")
+
             if question.lower() == "exit":
                 break
-            elif question == "":
-                continue
+            #question = st.text_input("Enter a question (type 'exit' to end):", key= uuid.uuid1())
+            #if question.lower() == "exit":
+                #break
+            #elif question == "":
+                #continue
             answer = generate_answer(question, text)
             st.write(answer)
 
