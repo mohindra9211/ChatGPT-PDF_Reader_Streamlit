@@ -43,10 +43,10 @@ def handle_file_upload():
         text = extract_text_from_pdf(file)
         #answered = True  # Set to True initially to prevent first question box from showing up
         while True:
-        question = st.text_input("Enter a question:")
-        if st.button("Submit"):
-            answer = generate_answer(question, text)
-            st.write(answer)
+            question = st.text_input("Enter a question:")
+            if st.button("Submit"):
+                answer = generate_answer(question, text)
+                st.write(answer)
 
         '''while True:
             question = st.text_input("Enter a question (type 'exit' to end):", key= uuid.uuid1())
