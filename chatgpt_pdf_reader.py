@@ -43,7 +43,7 @@ def handle_file_upload():
         text = extract_text_from_pdf(file)
 
         while True:
-            question = st.text_input("Enter a question (type 'exit' to end):", key="question_input")
+            question = st.text_input("Enter a question (type 'exit' to end):", key= uuid.uuid1())
             if question.lower() == "exit":
                 break
             elif question == "":
