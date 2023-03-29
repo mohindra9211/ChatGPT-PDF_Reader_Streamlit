@@ -10,12 +10,12 @@ openai.api_key = api_key
 
 # Define a function to extract text from a PDF file
 def extract_text_from_pdf(file):
-    pdf_reader = PyPDF2.PdfFileReader(file)
-    num_pages = pdf_reader.getNumPages()
+    pdf_reader = PyPDF2.PdfReader(file)
+    num_pages = len(pdf_reader.pages)
     text = ""
     for page_num in range(num_pages):
-        page = pdf_reader.getPage(page_num)
-        text += page.extractText()
+        page = pdf_reader.pages[page_num]
+        text += page.extract_text()
     return text
 
 # Define a function to generate answers to user questions using the ChatGPT API
