@@ -50,6 +50,7 @@ def handle_file_upload():
             answer = generate_answer(question, text)
             st.write(answer)
             '''
+       while True:
         question = st.text_input("Enter a question:")
         if st.button("Submit"):
             answer = generate_answer(question, text)
