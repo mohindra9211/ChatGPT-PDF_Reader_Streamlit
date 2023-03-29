@@ -42,6 +42,11 @@ def handle_file_upload():
     if file is not None:
         text = extract_text_from_pdf(file)
         #answered = True  # Set to True initially to prevent first question box from showing up
+        while True:
+        question = st.text_input("Enter a question:")
+        if st.button("Submit"):
+            answer = generate_answer(question, text)
+            st.write(answer)
 
         '''while True:
             question = st.text_input("Enter a question (type 'exit' to end):", key= uuid.uuid1())
@@ -50,12 +55,7 @@ def handle_file_upload():
             answer = generate_answer(question, text)
             st.write(answer)
             '''
-       while True:
-        question = st.text_input("Enter a question:")
-        if st.button("Submit"):
-            answer = generate_answer(question, text)
-            st.write(answer)
-
+        
 # Define a main function to run the program
 def main():
     handle_file_upload()
