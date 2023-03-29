@@ -1,6 +1,7 @@
 import PyPDF2
 import openai
 import streamlit as st
+import uuid
 
 # Prompt the user for their API key
 api_key = st.text_input("Enter your OpenAI API key:")
@@ -42,7 +43,7 @@ def handle_file_upload():
         text = extract_text_from_pdf(file)
 
         while True:
-            question = st.text_input("Enter a question (type 'exit' to end):")
+            question = st.text_input("Enter a question (type 'exit' to end):", key=uuid.uuid1())
             if question.lower() == "exit":
                 break
 
