@@ -46,7 +46,8 @@ def handle_file_upload():
             question = st.text_input("Enter a question (type 'exit' to end):", key=uuid.uuid4())
             if question.lower() == "exit":
                 break
-
+            elif question == "":
+                continue
             answer = generate_answer(question, text)
             st.write(answer)
 
